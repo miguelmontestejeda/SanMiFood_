@@ -9,6 +9,7 @@
 </head>
 <!-- COMENTARIOS -->
 <body>
+
 <div class="contenedor">
   <div class="top">
     <h1>SanMiFood</h1>
@@ -19,116 +20,157 @@
   </div>
 </div>
 
-    <header>
+<header>
 
-        <!--Apartir de este div, es la navegacion q se tendra en la pagina-->
-        <div class="menucontainer">
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#">Inicio</a></li><!--Puede ser enlace para cada restaurante-->
-                    <li><a href="#">Lugares</a></li><!--Aun falta dwefinir estos enlaces-->
-                    <li><a href="#">Comida</a></li><!--Enlaces, al ajustar la pagina veremos para q sirve -->
-                </ul>
-            </nav>
-        </div><!--Este es el fin de la navegacion de la pagina-->
+    <div class="menucontainer">
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Lugares</a></li>
+                <li><a href="#">Comida</a></li>
+            </ul>
+        </nav>
+    </div>
 
-        <div class="contenedor-tarjetas"> <!--Aqui se encuentran las tarjetas de cada restaurante, se pueden agregar mas o quitar dependiendo de lo que se necesite-->
+    <!-- 🔍 NUEVO BUSCADOR -->
+    <div class="extras">
+        <input type="text" placeholder="Buscar comida..." class="buscador">
 
-            <div class="tarjeta">
-                <a href="Tacos.html">
+        <div class="filtros">
+            <button>Todo</button>
+            <button>Tacos</button>
+            <button>Pizza</button>
+            <button>Postres</button>
+        </div>
+    </div>
+
+    <div class="contenedor-tarjetas">
+
+        <div class="tarjeta">
+            <a href="Tacos.html">
+
+                <div class="etiqueta">Popular</div>
+                <div class="favorito">❤️</div>
+
                 <img src="Imagenes/tacos.jpg" alt="Tacos">
                 <div class="contenido">
                     <h3>Tacos</h3>
+                    <div class="rating">⭐ 4.8</div>
                     <p>Los mejores tacos de una bonita localidad, te recomendamos probarlos</p>
+                    <button class="btn">Ordenar</button>
                 </div>
-                </a>
-            </div>
+            </a>
+        </div>
 
-            <div class="tarjeta">
-                <a href="Pizza.html">
+        <div class="tarjeta">
+            <a href="Pizza.html">
+
+                <div class="etiqueta">Nuevo</div>
+                <div class="favorito">❤️</div>
+
                 <img src="Imagenes/Pizza.jpeg" alt="Pizza">
                 <div class="contenido">
                     <h3>Pizzas</h3>
+                    <div class="rating">⭐ 4.7</div>
                     <p>Pizzas hechas con ingredientres de calidad para tu paladar</p>
+                    <button class="btn">Ordenar</button>
                 </div>
-                </a>
-            </div>
+            </a>
+        </div>
 
-            <div class="tarjeta">
-                <a href="Hamburguesas.html">
+        <div class="tarjeta">
+            <a href="Hamburguesas.html">
+
+                <div class="favorito">❤️</div>
+
                 <img src="Imagenes/Hamburguesas.jpeg" alt="Hamburguesa">
                 <div class="contenido">
                     <h3>Hamburguesas</h3>
+                    <div class="rating">⭐ 4.6</div>
                     <p>No puedes quedarte sin probar las mejores hamburguesas de la localidad</p>
+                    <button class="btn">Ordenar</button>
                 </div>
-                </a>
-            </div>
+            </a>
+        </div>
 
-            <div class="tarjeta">
-                <a href="Birria.html">
+        <div class="tarjeta">
+            <a href="Birria.html">
+
+                <div class="favorito">❤️</div>
+
                 <img src="Imagenes/Birria 2.jpeg" alt="Birria">
                 <div class="contenido">
                     <h3>Birria</h3>
+                    <div class="rating">⭐ 4.9</div>
                     <p>La birria es una excelente opcion para comer algo rico y autentico</p>
+                    <button class="btn">Ordenar</button>
                 </div>
-                </a>
-            </div>
+            </a>
+        </div>
 
+        <div class="tarjeta">
+            <a href="Postres.html">
 
-            <div class="tarjeta">
-                <a href="Postres.html">
+                <div class="etiqueta">Top</div>
+                <div class="favorito">❤️</div>
+
                 <img src="Imagenes/Postres.jpeg" alt="Postres">
                 <div class="contenido">
                     <h3>Postres</h3>
+                    <div class="rating">⭐ 4.8</div>
                     <p>Los mejores postres para endulzar tu dia, no te quedes sin probarlos</p>
+                    <button class="btn">Ordenar</button>
                 </div>
-                </a>
-            </div>
+            </a>
+        </div>
 
-            <div class="tarjeta">
-                <a href="Bebidas.html">
+        <div class="tarjeta">
+            <a href="Bebidas.html">
+
+                <div class="favorito">❤️</div>
+
                 <img src="Imagenes/Bebidas.jpeg" alt="Bebidas">
                 <div class="contenido">
                     <h3>Bebidas</h3>
+                    <div class="rating">⭐ 4.5</div>
                     <p>Las mejores bebidas para acompañar tu comida, no te las puedes perder</p>
+                    <button class="btn">Ordenar</button>
                 </div>
-                </a>
-            </div>
-
-
+            </a>
         </div>
 
-    <section class="info">
-        <div class="info-content container">
-            <div class="info-txt"><!--Esta es parte de la informacion sobre los diferentes restauantes-->
-                <p>SanMiFood</p>
-                <h2>Informacion</h2>
-                <div class="info-sec"> 
-                    <div class="info-1">
-                        <h3>Por que usar SanMifood</h3>
-                        <p1>Es una pagina confiable que te da opciones de comida </p1>
-                    </div>
-                    <div class="info-2">
-                        <p1>Una forma de encontrar comida en un solo click</p1>
-                    </div>
-                    <div class="info-3">
-                        <p1>Una pagina que se adapta a tus necesidades</p1>
-                    </div>
-                    <div class="info-4">
-                        <p1>Descubre lugares nuevos para comer en tu pueblo</p1>
-                    </div>
+    </div>
+
+<section class="info">
+    <div class="info-content container">
+        <div class="info-txt">
+            <p>SanMiFood</p>
+            <h2>Informacion</h2>
+            <div class="info-sec"> 
+                <div class="info-1">
+                    <h3>Por que usar SanMifood</h3>
+                    <p>Es una pagina confiable que te da opciones de comida </p>
+                </div>
+                <div class="info-2">
+                    <p>Una forma de encontrar comida en un solo click</p>
+                </div>
+                <div class="info-3">
+                    <p>Una pagina que se adapta a tus necesidades</p>
+                </div>
+                <div class="info-4">
+                    <p>Descubre lugares nuevos para comer en tu pueblo</p>
                 </div>
             </div>
-
-            <div class="info-img">
-                <img src="Imagenes/menuopciones.jpg" alt="">
-            </div>
-
         </div>
-    </section>
 
-    <script src="script.js"> </script>
+        <div class="info-img">
+            <img src="Imagenes/menuopciones.jpg" alt="">
+        </div>
+
+    </div>
+</section>
+
+<script src="script.js"> </script>
         
 </body>
-
 </html>
