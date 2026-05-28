@@ -1,34 +1,46 @@
 const express = require("express");
+const app = express();
+
 const mysql = require("mysql2");
 const cors = require("cors");
 
-const app = express();
+require("dotenv").config();
+
+
+// =========================
+// MIDDLEWARES
+// =========================
 
 app.use(cors());
 app.use(express.json());
 
+
+// =========================
+// CONEXIÓN MYSQL
+// =========================
+
 const db = mysql.createConnection({
 
-    host: "localhost",
-    user: "root",
-    password: "abc123", //Esto es unicamente para desarrollo, en producción se deben usar variables de entorno para manejar las credenciales de la base de datos
-    database: "sanmifood"
+    host: process.env.MYSQLHOST,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE,
+    port: process.env.MYSQLPORT
 
 });
 
 db.connect(err => {
 
     if(err){
+
         console.log(err);
+
     }else{
+
         console.log("MySQL conectado");
     }
 });
 
-app.listen(3000, () => {
-
-    console.log("Servidor corriendo en puerto 3000");
-});
 
 // =========================
 // REGISTRO
@@ -37,6 +49,7 @@ app.listen(3000, () => {
 app.post("/registro", (req, res) => {
 
     const {
+
         nombre,
         telefono,
         direccion,
@@ -55,6 +68,13 @@ app.post("/registro", (req, res) => {
 
     db.query(verificar, [correo], (err, result) => {
 
+        if(err){
+
+            console.log(err);
+
+            return res.send("error");
+        }
+
         if(result.length > 0){
 
             res.send("correo_existe");
@@ -70,7 +90,9 @@ app.post("/registro", (req, res) => {
             
             `;
 
-            db.query(sql,
+            db.query(
+
+                sql,
 
                 [
                     nombre,
@@ -117,7 +139,9 @@ app.post("/login", (req, res) => {
     
     `;
 
-    db.query(sql,
+    db.query(
+
+        sql,
 
         [correo, password],
 
@@ -144,6 +168,7 @@ app.post("/login", (req, res) => {
     );
 });
 
+
 // =========================
 // AGREGAR AL CARRITO
 // =========================
@@ -151,10 +176,12 @@ app.post("/login", (req, res) => {
 app.post("/carrito", (req, res) => {
 
     const {
+
         usuario_id,
         nombre_producto,
         precio,
         restaurante
+
     } = req.body;
 
     const sql = `
@@ -166,7 +193,9 @@ app.post("/carrito", (req, res) => {
     
     `;
 
-    db.query(sql,
+    db.query(
+
+        sql,
 
         [
             usuario_id,
@@ -253,4 +282,16 @@ app.delete("/carrito/:id", (req, res) => {
             res.send("eliminado");
         }
     });
+});
+
+
+// =========================
+// SERVIDOR
+// =========================
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+
+    console.log(`Servidor corriendo en puerto ${PORT}`);
 });
