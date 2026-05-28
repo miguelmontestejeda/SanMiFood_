@@ -4,29 +4,21 @@ const app = express();
 const mysql = require("mysql2");
 const cors = require("cors");
 
-require("dotenv").config();
-
-
-// =========================
-// MIDDLEWARES
-// =========================
-
 app.use(cors());
 app.use(express.json());
 
 
 // =========================
-// CONEXIÓN MYSQL
+// CONEXIÓN MYSQL LOCAL
 // =========================
 
 const db = mysql.createConnection({
 
-    host: process.env.MYSQLHOST,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE,
-    port: process.env.MYSQLPORT
-
+    host: "localhost",
+    user: "root",
+    password: "abc123",
+    database: "sanmifood",
+    port: 3306
 });
 
 db.connect(err => {
@@ -286,12 +278,10 @@ app.delete("/carrito/:id", (req, res) => {
 
 
 // =========================
-// SERVIDOR
+// SERVIDOR LOCAL
 // =========================
 
-const PORT = process.env.PORT || 3000;
+app.listen(3000, () => {
 
-app.listen(PORT, () => {
-
-    console.log(`Servidor corriendo en puerto ${PORT}`);
+    console.log("Servidor corriendo en puerto 3000");
 });
